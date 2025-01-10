@@ -24,9 +24,7 @@ public class ConfigurationProvider
         {
             String ruleDescription = matcher.group(1);
 
-            String escapedDescription = ruleDescription
-                    .replaceAll("\\\\n", "\n")
-                    .replaceAll("\\\\", "");
+            String escapedDescription = Utilities.escapeString(ruleDescription);
 
             List<JsonNode> jsonNodes = jsonNode(escapedDescription)
                     .asObject()
